@@ -1,0 +1,83 @@
+*{
+    box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+}
+.input_email, .input_name {
+    padding: 8px 10px;
+    margin-bottom: 33px;	
+}
+.btn {
+    padding: 5px 29px;
+    cursor: pointer;
+}
+.btn:hover {
+    background: grey;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: darkturquoise;
+}
+#header_window {
+    display: flex;
+    justify-content: flex-end;
+    background: black;
+    grid-area: header;
+}
+#header_window > a, #nav_window > a {
+    color: white;
+       text-decoration: none;
+        font-size: x-large;
+        font-family: cursive;
+    margin-right: 9px;
+}
+a:hover {
+    color: blue;
+}
+.main_page {
+    display: grid;
+    grid-template-areas: 
+          "header header header"
+          "nav article article"
+          "footer footer footer";
+    grid-template-rows: 60px 1fr 60px;
+      grid-template-columns: 20% 1fr 15%;
+    height: 100vh;
+}
+#nav_window {
+    grid-area: nav;
+    display: flex;
+    flex-direction: column;
+    background: chartreuse;
+}
+#article_window {
+    grid-area: article;
+    background: crimson;
+}
+#footer_window {
+    grid-area: footer;
+    text-align: center;
+    background: violet;
+}
+.avatar {
+    height: 60px;	
+    margin-right: 17px;	
+}
+.post_item {
+    display: flex;
+    align-items: center;
+    padding: 17px;
+}
+
+#nav_window a.active {
+    color:gold;
+}
+
+#avatar_main {
+    width: 212px;
+    height: 354px;
+    margin-left: 10px;
+    margin-top: 9px;
+}
