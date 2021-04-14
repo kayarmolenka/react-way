@@ -10,6 +10,19 @@ const state = {
 	dialogs: [
 		{id: 1, message: `What's your name?`, avatar: '/img/nastya.jpg'}
 	],
+	posts: [
+		{id: 1, message: 'Bring coffee mother and father', likesCount: 3},
+		{id: 2, message: 'I want to speak English very well, correctly and fluently', likesCount: 3},
+	],
+}
+
+export const addPost = (postMessage) => {
+	const newPost = {
+		id: 3, 
+		message: postMessage,
+		likesCount: 0
+	};
+	state.posts.push(newPost)
 }
 
 export default state;

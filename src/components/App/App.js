@@ -4,8 +4,11 @@ import Header from '../Header/Header';
 import Nav from '../Nav/Nav';
 import Footer from '../Footer/Footer';
 import Content from '../Content/Content';
+import {addPost} from '../state';
 
 import './App.css';
+
+addPost('Also I want to become a Developer very well')
 
 function App(props) {
 	return (

@@ -1,15 +1,21 @@
 import React from "react";
 
-function Wall() {
-
+function Wall({posts}) {
 	const newPostElement = React.createRef();
-
 	const addPost = () => {
 		const text = newPostElement.current.value;
 		alert(text);
 	}
+
+	const elements = posts.map(({id, message}) => {
+		return <li className='list-item' key={id}>{message}</li>
+	})
+
 	return(
-		<article>
+		<article id='all-posts'>
+			<ul className='app-list-item'>
+				{elements}
+			</ul>
 			<h2>Spend message:</h2>
 			<input
 				ref={newPostElement}
