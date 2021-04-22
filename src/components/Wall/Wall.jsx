@@ -1,13 +1,15 @@
 import React from "react";
 
-function Wall({posts}) {
+function Wall(props) {
 	const newPostElement = React.createRef();
-	const addPost = () => {
-		const text = newPostElement.current.value;
-		alert(text);
-	}
 
-	const elements = posts.map(({id, message}) => {
+	const MyPosts = () => {
+		const text = newPostElement.current.value;
+		props.addPost(text);
+		newPostElement.current.value = '';
+	}
+	
+	const elements = props.posts.map(({id, message}) => {
 		return <li className='list-item' key={id}>{message}</li>
 	})
 
@@ -23,7 +25,7 @@ function Wall({posts}) {
 				placeholder='What is new?'
 			></input>
 			<button
-				onClick={addPost}
+				onClick={MyPosts}
 			>Spend message</button>
 		</article>
 	)

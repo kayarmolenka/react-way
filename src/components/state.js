@@ -1,3 +1,5 @@
+import { renderPage } from "../render";
+
 const state = {
 	persons: [
 		{id: 1, name:'Nastya', avatar: '/img/nastya.jpg'},
@@ -22,7 +24,8 @@ export const addPost = (postMessage) => {
 		message: postMessage,
 		likesCount: 0
 	};
-	state.posts.push(newPost)
+	state.posts.push(newPost);
+	renderPage(state);
 }
 
 export default state;
