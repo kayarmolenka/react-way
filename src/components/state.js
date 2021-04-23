@@ -1,4 +1,6 @@
-import { renderPage } from "../render";
+let renderPage = () => {
+	console.log('sad')
+}
 
 const state = {
 	persons: [
@@ -16,16 +18,26 @@ const state = {
 		{id: 1, message: 'Bring coffee mother and father', likesCount: 3},
 		{id: 2, message: 'I want to speak English very well, correctly and fluently', likesCount: 3},
 	],
+	newPostText: ''
 }
 
-export const addPost = (postMessage) => {
+export const addPost = () => {
 	const newPost = {
 		id: 3, 
-		message: postMessage,
+		message: state.newPostText,
 		likesCount: 0
 	};
 	state.posts.push(newPost);
+	state.newPostText = '';
 	renderPage(state);
 }
 
+export const updateTextPost = (newText) => {
+	state.newPostText = newText;
+	renderPage(state);
+}
+
+export const subscribe = (observer) => {
+	renderPage = observer;
+}
 export default state;
