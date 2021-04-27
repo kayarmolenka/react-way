@@ -17,12 +17,18 @@ let store = {
 		],
 		newPostText: ''
 	},
-	getState() {
-		return this._state;
-	},
 	_renderPage() {
 		console.log('sad')
 	},
+	
+	getState() {
+		return this._state;
+	},
+	subscribe(observer) {
+		this._renderPage = observer;
+	},
+
+
 	addPost() {
 		const newPost = {
 			id: 3, 
@@ -37,9 +43,22 @@ let store = {
 		this._state.newPostText = newText;
 		this._renderPage(this._state);
 	},
-	subscribe(observer) {
-		this._renderPage = observer;
-	},
+	
+	dispatch(action) {
+		if(action.type === 'ADD-POST'){
+			const newPost = {
+				id: 3, 
+				message: this._state.newPostText,
+				likesCount: 0
+			};
+			this._state.posts.push(newPost);
+			this._state.newPostText = '';
+			this._renderPage(this._state);
+		} else if(action.type === 'UPDATE-NEW-POST-TEXT'){
+			this._state.newPostText = action.newText;
+			this._renderPage(this._state);
+		}
+	}
 }
 
 export default store;

@@ -4,7 +4,7 @@ function Wall(props) {
 	const newPostElement = React.createRef();
 
 	const MyPosts = () => {
-		props.addPost();
+		props.dispatch({type: 'ADD-POST'});
 	}
 	
 	const elements = props.posts.map(({id, message}) => {
@@ -13,7 +13,7 @@ function Wall(props) {
 
 	const onPostChange = () => {
 		const text = newPostElement.current.value;
-		props.updateTextPost(text);
+		props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text});
 	}
 
 	return(

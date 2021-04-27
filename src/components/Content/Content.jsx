@@ -12,7 +12,7 @@ function Content(props) {
 		<React.Fragment>
 			<Route path="/friends" render={() => <Friends persons={props.state.persons}/>} />
 			<Route path="/message" render={() => <Message dialogs={props.state.dialogs}/>} />
-			<Route path="/wall" render={() => <Wall posts={props.state.posts} addPost={props.addPost} newPostText={props.state.newPostText} updateTextPost={props.updateTextPost}/>} />
+			<Route path="/wall" render={() => <Wall posts={props.state.posts} dispatch={props.dispatch} newPostText={props.state.newPostText} />} />
 			<Route path="/setting" component={Setting} />
 			<Route path="/main" component={Main} />
 		</React.Fragment>

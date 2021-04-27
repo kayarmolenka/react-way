@@ -11,7 +11,7 @@ function App(props) {
 		<div className="main_page">
 			<Header />
 			<Nav />
-			<Content state={props.state} addPost={props.addPost} updateTextPost={props.updateTextPost}/>
+			<Content state={props.state} dispatch={props.dispatch} />
 			<Footer />		
 		</div>
 		
